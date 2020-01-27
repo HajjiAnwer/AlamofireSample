@@ -7,14 +7,26 @@
 //
 
 import UIKit
+import ObjectMapper
+import Alamofire
+import AlamofireObjectMapper
 
 class ViewController: UIViewController {
+    @IBOutlet weak var contentLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let url = "http://fakerestapi.azurewebsites.net/api/Activities"
+//        Alamofire.request(url).responseObject { (response: DataResponse<[Activity]>) in
+//
+//        }
+        
+        Alamofire.request(url).responseArray { (DataResponse<[Activity]>) in
+            
+        }
     }
-
-
 }
+
+
+
 
