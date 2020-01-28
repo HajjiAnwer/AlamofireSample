@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		911EDA5923DE4658005B73C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911EDA5823DE4658005B73C9 /* AppDelegate.swift */; };
-		911EDA5B23DE4658005B73C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911EDA5A23DE4658005B73C9 /* ViewController.swift */; };
 		911EDA5E23DE4658005B73C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 911EDA5C23DE4658005B73C9 /* Main.storyboard */; };
 		911EDA6023DE465A005B73C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 911EDA5F23DE465A005B73C9 /* Assets.xcassets */; };
 		911EDA6323DE465A005B73C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 911EDA6123DE465A005B73C9 /* LaunchScreen.storyboard */; };
@@ -24,7 +23,6 @@
 		5BB15720AB2E49CD2A96465A /* Pods_AlamofireSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlamofireSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		911EDA5523DE4658005B73C9 /* AlamofireSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlamofireSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		911EDA5823DE4658005B73C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		911EDA5A23DE4658005B73C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		911EDA5D23DE4658005B73C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		911EDA5F23DE465A005B73C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		911EDA6223DE465A005B73C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -89,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				911EDA5823DE4658005B73C9 /* AppDelegate.swift */,
+				91DE185523E0EC5200A0E71F /* Service */,
 				916F16B823E038C900CC5A02 /* Controller */,
 				916F16B723E038BE00CC5A02 /* Model */,
 				916F16B923E038E900CC5A02 /* View */,
@@ -102,7 +101,6 @@
 		916F16B723E038BE00CC5A02 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				91DE185023E0778300A0E71F /* AlamofireService.swift */,
 				91DE185223E09C2900A0E71F /* ModelData.xcdatamodeld */,
 				911EDA7123DE8935005B73C9 /* Activity.swift */,
 			);
@@ -112,7 +110,6 @@
 		916F16B823E038C900CC5A02 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				911EDA5A23DE4658005B73C9 /* ViewController.swift */,
 				916F16BC23E0413100CC5A02 /* ListActivityViewController.swift */,
 				916F16BE23E0415E00CC5A02 /* ActivityCell.swift */,
 			);
@@ -125,6 +122,14 @@
 				911EDA5C23DE4658005B73C9 /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		91DE185523E0EC5200A0E71F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				91DE185023E0778300A0E71F /* AlamofireService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,7 +248,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				911EDA7223DE8935005B73C9 /* Activity.swift in Sources */,
-				911EDA5B23DE4658005B73C9 /* ViewController.swift in Sources */,
 				916F16BF23E0415E00CC5A02 /* ActivityCell.swift in Sources */,
 				916F16BD23E0413100CC5A02 /* ListActivityViewController.swift in Sources */,
 				91DE185423E09C2900A0E71F /* ModelData.xcdatamodeld in Sources */,

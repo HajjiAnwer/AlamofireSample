@@ -16,11 +16,15 @@ class ListActivityViewController: UITableViewController {
     
     var activities = [EntityModel]()
     let alamofireService = AlamofireService()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        alamofireService.fetchData()
-        print("the size of activities array is \(activities.count)")
+        saveData()
+        retrieveData()
+        for i in 0 ... (activities.count-1){
+            print(activities[i].id)
+        }
     }
     
   
@@ -33,16 +37,47 @@ class ListActivityViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return activities.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! ActivityCell
+        cell.titleLabel.text = activities[indexPath.row].name
         return cell
     }
     
-
+    func retrieveData(request : NSFetchRequest<EntityModel> = EntityModel.fetchRequest())  {
+        do{
+            activities = try context.fetch(request)
+        }catch{
+            print("error fetching context \(error)")
+        }
+    }
+    
+    func saveData()  {
+        alamofireService.fetchData { (activitiesArray) in
+            let newEntity = EntityModel(context: self.context)
+            for activity in activitiesArray {
+                newEntity.name = activity.title
+                newEntity.id = activity.id
+                newEntity.complete = activity.completed!
+                newEntity.dueDate = activity.dueDate
+                self.activities.append(newEntity)
+                self.save()
+            }
+        }
+    }
+    func save()  {
+        do{
+            try context.save()
+            print("successufull saving context")
+        }catch{
+            print("error saving context \(error)")
+        }
+        tableView.reloadData()
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
