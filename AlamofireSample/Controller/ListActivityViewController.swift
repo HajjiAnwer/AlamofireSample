@@ -20,11 +20,7 @@ class ListActivityViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        saveData()
         retrieveData()
-        for i in 0 ... (activities.count-1){
-            print(activities[i].id)
-        }
     }
     
   
@@ -47,7 +43,21 @@ class ListActivityViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.context.delete(self.activities[indexPath.row])
+        self.activities.remove(at: indexPath.row)
+        tableView.reloadData()
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    func deleteData()  {
+        for i in 0 ... (activities.count-1){
+            context.delete(activities[i])
+            activities.remove(at: i)
+            tableView.reloadData()
+        }
+    }
     func retrieveData(request : NSFetchRequest<EntityModel> = EntityModel.fetchRequest())  {
+        tableView.reloadData()
         do{
             activities = try context.fetch(request)
         }catch{
@@ -57,12 +67,12 @@ class ListActivityViewController: UITableViewController {
     
     func saveData()  {
         alamofireService.fetchData { (activitiesArray) in
-            let newEntity = EntityModel(context: self.context)
-            for activity in activitiesArray {
-                newEntity.name = activity.title
-                newEntity.id = activity.id
-                newEntity.complete = activity.completed!
-                newEntity.dueDate = activity.dueDate
+            for i in 0 ... (activitiesArray.count-1) {
+                let newEntity = EntityModel(context: self.context)
+                newEntity.name = activitiesArray[i].title
+                newEntity.id = activitiesArray[i].id
+                newEntity.complete = activitiesArray[i].completed!
+                newEntity.dueDate = activitiesArray[i].dueDate
                 self.activities.append(newEntity)
                 self.save()
             }
@@ -75,7 +85,6 @@ class ListActivityViewController: UITableViewController {
         }catch{
             print("error saving context \(error)")
         }
-        tableView.reloadData()
     }
     
     /*
