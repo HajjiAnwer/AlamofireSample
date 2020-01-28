@@ -10,11 +10,11 @@ import Foundation
 import ObjectMapper
 
 class Activity: Mappable {
-    var id : Int = 0
+    var id : Int16 = 0
     var title : String? = ""
     var dueDate : String? = ""
     var completed : Bool? = false
-    
+
     required init?(map: Map) {
 
     }
