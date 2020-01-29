@@ -17,7 +17,6 @@ class AlamofireService {
     func fetchData(completion : @escaping ([Activity]) -> ()){
         let url = "http://fakerestapi.azurewebsites.net/api/Activities"
         Alamofire.request(url).responseArray { (response: DataResponse<[Activity]>) in
-            print(response)
             if let activities = response.result.value{
                 for i in 0 ... (activities.count-1){
                 completion(activities)
@@ -25,6 +24,16 @@ class AlamofireService {
                 }
             }
         }
+    func fetchDataByID(id : Int , completion : @escaping () -> ()){
+        let url = "http://fakerestapi.azurewebsites.net/api/Activities"
+        let fullURL = url + "/" + "\(id)"
+        print("the ful URl is \(fullURL)")
+        Alamofire.request(fullURL).responseObject { (response: DataResponse<Activity>) in
+            if let activity = response.result.value{
+                completion()
+            }
+        }
+    }
         
        
     }

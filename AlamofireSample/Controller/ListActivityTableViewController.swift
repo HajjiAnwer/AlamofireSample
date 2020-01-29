@@ -38,5 +38,10 @@ class ListActivityTableViewController: UITableViewController {
         }
         return cell
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController
+        vc?.id = indexPath.row + 1
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
     
 }

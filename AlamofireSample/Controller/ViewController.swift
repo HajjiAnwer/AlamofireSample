@@ -11,8 +11,12 @@ import UIKit
 class MainViewController: UIViewController {
     @IBOutlet weak var contentLabel: UILabel!
     let alamofireService = AlamofireService()
+    var id = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        alamofireService.fetchDataByID(id: id, completion: <#T##() -> ()#>){
+            
+        }
 //        alamofireService.fetchData { (activity) in
 //            self.contentLabel.text = activity.title!
 //        }
