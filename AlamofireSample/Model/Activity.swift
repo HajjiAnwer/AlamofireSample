@@ -10,11 +10,16 @@ import Foundation
 import ObjectMapper
 
 class Activity: Mappable {
-    var id : Int16 = 0
+    var id : Int = 0
     var title : String? = ""
     var dueDate : String? = ""
     var completed : Bool? = false
-
+    init(id : Int?, title: String?,dueDate: String?, completed: Bool?) {
+        self.id = id!
+        self.title = title!
+        self.dueDate = dueDate!
+        self.completed = completed!
+    }
     required init?(map: Map) {
 
     }
