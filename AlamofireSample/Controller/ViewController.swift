@@ -8,13 +8,15 @@
 
 import UIKit
 import PKHUD
+import SwiftyButton
+
 
 class MainViewController: UIViewController {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var completedLabel: UILabel!
     @IBOutlet weak var dueDateLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
-    
+    @IBOutlet weak var addButton: PressableButton!
     let alamofireService = AlamofireService()
     var id = 0
     override func viewDidLoad() {
@@ -32,6 +34,9 @@ class MainViewController: UIViewController {
                 case false :
                     self.completedLabel.text = "This activity is not completed"
             }
+            self.addButton.colors = .init(button: .orange, shadow: .orange)
+            self.addButton.shadowHeight = 5
+            self.addButton.cornerRadius = 5
         }
     }
 }
