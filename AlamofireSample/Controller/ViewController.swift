@@ -7,32 +7,31 @@
 //
 
 import UIKit
+import PKHUD
 
 class MainViewController: UIViewController {
     @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var completedLabel: UILabel!
+    @IBOutlet weak var dueDateLabel: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
+    
     let alamofireService = AlamofireService()
     var id = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        alamofireService.fetchDataByID(id: id, completion: <#T##() -> ()#>){
-            
+        PKHUD.sharedHUD.contentView = PKHUDProgressView()
+        PKHUD.sharedHUD.show()
+        alamofireService.fetchDataByID(id: id) { (activity) in
+            PKHUD.sharedHUD.hide()
+            self.contentLabel.text = activity.title
+            self.idLabel.text = "id = " + String(activity.id)
+            self.dueDateLabel.text = "dueDate is " + activity.dueDate!
+            switch  activity.completed! {
+                case true :
+                    self.completedLabel.text = "This activity is completed"
+                case false :
+                    self.completedLabel.text = "This activity is not completed"
+            }
         }
-//        alamofireService.fetchData { (activity) in
-//            self.contentLabel.text = activity.title!
-//        }
-        
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

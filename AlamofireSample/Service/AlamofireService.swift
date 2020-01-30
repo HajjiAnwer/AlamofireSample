@@ -18,19 +18,17 @@ class AlamofireService {
         let url = "http://fakerestapi.azurewebsites.net/api/Activities"
         Alamofire.request(url).responseArray { (response: DataResponse<[Activity]>) in
             if let activities = response.result.value{
-                for i in 0 ... (activities.count-1){
                 completion(activities)
-                }
                 }
             }
         }
-    func fetchDataByID(id : Int , completion : @escaping () -> ()){
+    func fetchDataByID(id : Int , completion : @escaping (Activity) -> ()){
         let url = "http://fakerestapi.azurewebsites.net/api/Activities"
         let fullURL = url + "/" + "\(id)"
         print("the ful URl is \(fullURL)")
-        Alamofire.request(fullURL).responseObject { (response: DataResponse<Activity>) in
+        Alamofire.request(fullURL, method: .get, encoding: JSONEncoding.default).responseObject { (response: DataResponse<Activity>) in
             if let activity = response.result.value{
-                completion()
+                completion(activity)
             }
         }
     }
