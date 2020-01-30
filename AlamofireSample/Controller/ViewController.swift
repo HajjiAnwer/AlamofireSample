@@ -30,9 +30,9 @@ class MainViewController: UIViewController {
             self.dueDateLabel.text = "dueDate is " + activity.dueDate!
             switch  activity.completed! {
                 case true :
-                    self.completedLabel.text = "This activity is completed"
+                    self.completedLabel.text = ConstantValue.completedActivity
                 case false :
-                    self.completedLabel.text = "This activity is not completed"
+                    self.completedLabel.text = ConstantValue.notCompletedActivity
             }
             self.addButton.colors = .init(button: .orange, shadow: .orange)
             self.addButton.shadowHeight = 5

@@ -11,21 +11,17 @@ import Alamofire
 import AlamofireObjectMapper
 import ObjectMapper
 
-
 class AlamofireService {
     
     func fetchData(completion : @escaping ([Activity]) -> ()){
-        let url = "http://fakerestapi.azurewebsites.net/api/Activities"
-        Alamofire.request(url).responseArray { (response: DataResponse<[Activity]>) in
+        Alamofire.request(ConstantValue.fetchingUrl).responseArray { (response: DataResponse<[Activity]>) in
             if let activities = response.result.value{
                 completion(activities)
                 }
             }
         }
     func fetchDataByID(id : Int , completion : @escaping (Activity) -> ()){
-        let url = "http://fakerestapi.azurewebsites.net/api/Activities"
-        let fullURL = url + "/" + "\(id)"
-        print("the ful URl is \(fullURL)")
+        let fullURL = ConstantValue.fetchingUrl + "/" + "\(id)"
         Alamofire.request(fullURL, method: .get, encoding: JSONEncoding.default).responseObject { (response: DataResponse<Activity>) in
             if let activity = response.result.value{
                 completion(activity)
@@ -33,8 +29,7 @@ class AlamofireService {
         }
     }
     func addData (param : [String : String], completion : @escaping () ->()){
-        let url = "http://fakerestapi.azurewebsites.net/api/Activities"
-        Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON { (response) in
+        Alamofire.request(ConstantValue.addDataUrl, method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON { (response) in
             let result = response.response?.statusCode
             if result == 200{
                 completion()

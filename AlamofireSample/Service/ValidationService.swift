@@ -15,10 +15,8 @@ class ValidationService {
         let result = textField.validate(rule: rule)
         switch result {
         case .invalid:
-            print("invalid inserted field")
             return false
         case .valid:
-            print("valid inserted field")
              return true
         }
     }
@@ -29,8 +27,7 @@ class ValidationService {
             textField.textColor = UIColor.green
             return true
         case false :
-            textField.textColor = UIColor.red
-            textField.text = "invalid inserted field"
+            modifierTextFieldWhenInvalid(textField: textField)
             return false
         }
     }
@@ -40,33 +37,33 @@ class ValidationService {
             textField.textColor = UIColor.green
             return true
         }
-        textField.textColor = UIColor.red
-        textField.text = "invalid inserted field"
+        modifierTextFieldWhenInvalid(textField: textField)
         return false
     }
     
     func validateCompletedActivity(textField: UITextField) -> Bool {
-        let completedRule = ValidationRulePattern(pattern: ".*completed.*", error: CustomeError(message: "error"))
-        let notCompletedRule = ValidationRulePattern(pattern: ".*not completed.*", error: CustomeError(message: "error"))
+        let completedRule = ValidationRulePattern(pattern: ".*completed.*", error: CustomeError(message: ConstantValue.errorMessage))
+        let notCompletedRule = ValidationRulePattern(pattern: ".*not completed.*", error: CustomeError(message: ConstantValue.errorMessage))
         let resultOfCompleted = textField.validate(rule: completedRule)
         let resultOfnotCompleted = textField.validate(rule: notCompletedRule)
         switch resultOfCompleted {
         case .valid:
-            print("valid")
             textField.textColor = UIColor.green
             return true
         case .invalid:
             switch resultOfnotCompleted{
             case .valid:
-                print("valid")
                 textField.textColor = UIColor.green
                 return true
             case .invalid:
-                print("invalid")
-                textField.textColor = UIColor.red
-                textField.text = "invalid inserted field"
+                modifierTextFieldWhenInvalid(textField: textField)
                 return false
             }
         }
+    }
+    
+    func modifierTextFieldWhenInvalid (textField : UITextField){
+        textField.textColor = UIColor.red
+        textField.text = ConstantValue.messageForInvalidField
     }
 }

@@ -12,13 +12,13 @@
 		911EDA6023DE465A005B73C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 911EDA5F23DE465A005B73C9 /* Assets.xcassets */; };
 		911EDA6323DE465A005B73C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 911EDA6123DE465A005B73C9 /* LaunchScreen.storyboard */; };
 		911EDA7223DE8935005B73C9 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911EDA7123DE8935005B73C9 /* Activity.swift */; };
-		916F16BF23E0415E00CC5A02 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F16BE23E0415E00CC5A02 /* ActivityCell.swift */; };
 		916FD80F23E1A3C600E7FF7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916FD80E23E1A3C600E7FF7A /* ViewController.swift */; };
 		916FD81123E1B62600E7FF7A /* ListActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916FD81023E1B62600E7FF7A /* ListActivityTableViewController.swift */; };
 		91DE185123E0778300A0E71F /* AlamofireService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DE185023E0778300A0E71F /* AlamofireService.swift */; };
 		91DECD3723E315AC006DDD5C /* AddActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DECD3623E315AC006DDD5C /* AddActivityViewController.swift */; };
 		91DECD3923E3198C006DDD5C /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DECD3823E3198C006DDD5C /* ValidationService.swift */; };
 		91DECD3B23E31A03006DDD5C /* CustomeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DECD3A23E31A03006DDD5C /* CustomeError.swift */; };
+		91DECD3D23E34100006DDD5C /* ConstantValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DECD3C23E34100006DDD5C /* ConstantValue.swift */; };
 		BDDBD3FBE3952EFBEF3DB9CB /* Pods_AlamofireSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB15720AB2E49CD2A96465A /* Pods_AlamofireSample.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,13 +31,13 @@
 		911EDA6223DE465A005B73C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		911EDA6423DE465A005B73C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		911EDA7123DE8935005B73C9 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
-		916F16BE23E0415E00CC5A02 /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		916FD80E23E1A3C600E7FF7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		916FD81023E1B62600E7FF7A /* ListActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListActivityTableViewController.swift; sourceTree = "<group>"; };
 		91DE185023E0778300A0E71F /* AlamofireService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireService.swift; sourceTree = "<group>"; };
 		91DECD3623E315AC006DDD5C /* AddActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityViewController.swift; sourceTree = "<group>"; };
 		91DECD3823E3198C006DDD5C /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		91DECD3A23E31A03006DDD5C /* CustomeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeError.swift; sourceTree = "<group>"; };
+		91DECD3C23E34100006DDD5C /* ConstantValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantValue.swift; sourceTree = "<group>"; };
 		A584B7E381E58DB29249FB41 /* Pods-AlamofireSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireSample.release.xcconfig"; path = "Target Support Files/Pods-AlamofireSample/Pods-AlamofireSample.release.xcconfig"; sourceTree = "<group>"; };
 		C43A64426ACA62EC72EEF04A /* Pods-AlamofireSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireSample.debug.xcconfig"; path = "Target Support Files/Pods-AlamofireSample/Pods-AlamofireSample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +109,7 @@
 			children = (
 				911EDA7123DE8935005B73C9 /* Activity.swift */,
 				91DECD3A23E31A03006DDD5C /* CustomeError.swift */,
+				91DECD3C23E34100006DDD5C /* ConstantValue.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,7 +120,6 @@
 				916FD80E23E1A3C600E7FF7A /* ViewController.swift */,
 				91DECD3623E315AC006DDD5C /* AddActivityViewController.swift */,
 				916FD81023E1B62600E7FF7A /* ListActivityTableViewController.swift */,
-				916F16BE23E0415E00CC5A02 /* ActivityCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -259,7 +259,7 @@
 				916FD80F23E1A3C600E7FF7A /* ViewController.swift in Sources */,
 				911EDA7223DE8935005B73C9 /* Activity.swift in Sources */,
 				916FD81123E1B62600E7FF7A /* ListActivityTableViewController.swift in Sources */,
-				916F16BF23E0415E00CC5A02 /* ActivityCell.swift in Sources */,
+				91DECD3D23E34100006DDD5C /* ConstantValue.swift in Sources */,
 				91DECD3723E315AC006DDD5C /* AddActivityViewController.swift in Sources */,
 				91DE185123E0778300A0E71F /* AlamofireService.swift in Sources */,
 				91DECD3923E3198C006DDD5C /* ValidationService.swift in Sources */,

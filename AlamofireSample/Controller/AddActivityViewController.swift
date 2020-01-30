@@ -28,10 +28,8 @@ class AddActivityViewController: UIViewController {
     }
     @IBAction func addButtonPressed(_ sender: PressableButton) {
         let validationOfId = validatorService.validateID(textField: idTextField)
-        let ruleLength = ValidationRuleLength(min: 3, max: 10, lengthType: .characters, error: CustomeError(message: "errorMsg"))
-        let validationOfTitle = validatorService.displayValidation(textField: titleTextField, rule: ruleLength)
-        let ruleDueDate = "\\d{4}\\-\\d{2}\\-\\d{1,2}T\\d{2}\\:\\d{2}\\:\\d{2}\\.\\d{2,5}\\+\\d{2}\\:\\d{2}"
-        let ruleNumber = ValidationRulePattern(pattern: ruleDueDate, error: CustomeError(message:"errorMsg"))
+        let validationOfTitle = validatorService.displayValidation(textField: titleTextField, rule: ConstantValue.ruleLength)
+        let ruleNumber = ValidationRulePattern(pattern: ConstantValue.ruleDueDate, error: CustomeError(message:ConstantValue.errorMessage))
         let validationOfDueData = validatorService.displayValidation(textField: dueDateTextField, rule: ruleNumber)
         let validationOfCompletedOrNot = validatorService.validateCompletedActivity(textField: comletedTextField)
         if validationOfId && validationOfTitle && validationOfDueData && validationOfCompletedOrNot {
