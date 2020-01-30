@@ -32,8 +32,18 @@ class AlamofireService {
             }
         }
     }
+    func addData (param : [String : String], completion : @escaping () ->()){
+        let url = "http://fakerestapi.azurewebsites.net/api/Activities"
+        Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON { (response) in
+            let result = response.response?.statusCode
+            if result == 200{
+                completion()
+            }
+        }
+    }
+}
         
        
-    }
+    
 
 
